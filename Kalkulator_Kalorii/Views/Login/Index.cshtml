@@ -1,0 +1,35 @@
+﻿@model Kalkulator_Kalorii.ViewModels.AccountListVM
+@using Kalkulator_Kalorii.ViewModels;
+@{
+    ViewBag.Title = "Lista użytkowników";
+}
+
+<p class="link">
+    @Html.ActionLink("Dodaj nowe konto", "Register")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.accountListVM.First().loginUserVM.LoginID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accountListVM.First().loginUserVM.username)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (LoginUserVM item in Model.accountListVM)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.loginUserVM.LoginID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.loginUserVM.username)
+            </td>
+        </tr>
+    }
+
+</table>
+
+

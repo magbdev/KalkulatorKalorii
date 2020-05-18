@@ -1,0 +1,45 @@
+﻿@using Kalkulator_Kalorii.Models
+@model UserPPM
+@{
+    ViewBag.Title = "Kalkulator PPM";
+}
+
+    <div class="center-block">
+        <h2>Kalkulator Podstawowej Przemiany Materii</h2>
+
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.DisplayNameFor(model => Model.weight)
+            </div>
+            <div>
+                @Html.EditorFor(model => Model.weight)
+                @Html.ValidationMessageFor(model => model.weight, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.DisplayNameFor(model => Model.growth)
+            </div>
+            <div>
+                @Html.EditorFor(model => Model.growth)
+                @Html.ValidationMessageFor(model => model.growth, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.DisplayNameFor(model => Model.age)
+            </div>
+            <div>
+                @Html.EditorFor(model => Model.age)
+                @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.DisplayNameFor(model => Model.gender)
+            </div>
+            <div>
+                @Html.DropDownList("gender", new SelectList(Enum.GetValues(typeof(_gender))), "Wybierz jednostke", new { @class = "form-control" })
+            </div>
+            <br />
+            <input type="submit" value="Oblicz" class="link" />
+        }
+    </div>

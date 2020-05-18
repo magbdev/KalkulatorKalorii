@@ -1,0 +1,61 @@
+﻿@model Kalkulator_Kalorii.ViewModels.ProductListVM
+@using Kalkulator_Kalorii.ViewModels
+@{
+    ViewBag.Title = "Lista Produktów";
+}
+
+
+
+<p class="link">
+    @Html.ActionLink("Dodaj nowy produkt", "CreateProduct")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productVMlist.First().product.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productVMlist.First().product.calories)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productVMlist.First().product.protein)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productVMlist.First().product.carbs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productVMlist.First().product.fats)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (ProductVM item in Model.productVMlist)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.calories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.protein)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.carbs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product.fats)
+            </td>
+            <td>
+                <p class="link">
+                    @Html.ActionLink("Edytuj", "EditProduct",  new { @id = item.product.productID })
+                </p> 
+                <p class="link">
+                    @Html.ActionLink("Usuń", "DeleteProduct", item.product)
+                </p>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,29 @@
+﻿@using Kalkulator_Kalorii.Models
+@model UserLorentz
+@{
+    ViewBag.Title = "Wzór Lorentza";
+}
+    
+    <div class="center-block">
+        <h2>Kalkulator należnej masy ciała - wzór Lorentza</h2>
+
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.DisplayNameFor(model => Model.growth)
+            </div>
+            <div>
+                @Html.EditorFor(model => Model.growth)
+                @Html.ValidationMessageFor(model => model.growth, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.DisplayNameFor(model => Model.gender)
+            </div>
+            <div>
+                @Html.DropDownList("gender", new SelectList(Enum.GetValues(typeof(_gender))), "Wybierz jednostke", new { @class = "form-control" })
+            </div>
+            <br />
+            <input type="submit" value="Oblicz" class="link" />
+        }
+    </div>

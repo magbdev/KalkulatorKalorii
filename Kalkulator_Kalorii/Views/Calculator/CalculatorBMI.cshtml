@@ -1,0 +1,30 @@
+﻿@model Kalkulator_Kalorii.Models.UserBMI
+@{
+    ViewBag.Title = "Kalkulator BMI";
+}
+    
+    <div class="center-block">
+        <h2>Kalkulator BMI</h2>
+
+        @using (Html.BeginForm())
+        {
+            <div>
+                @Html.DisplayNameFor(model => Model.weight)
+            </div>
+            <div>
+                @Html.EditorFor(model => Model.weight)
+                @Html.ValidationMessageFor(model => model.weight, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div>
+                @Html.DisplayNameFor(model => Model.growth)
+            </div>
+            <div>
+                @Html.EditorFor(model => Model.growth)
+                @Html.ValidationMessageFor(model => model.growth, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <input type="submit" value="Oblicz" class="link" />
+        }
+    </div>

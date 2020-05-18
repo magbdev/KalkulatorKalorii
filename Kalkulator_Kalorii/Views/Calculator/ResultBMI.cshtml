@@ -1,0 +1,21 @@
+﻿@model Kalkulator_Kalorii.Models.UserBMI
+@{
+    ViewBag.Title = "Współczynnik BMI";
+}
+
+<h2>Twoje BMI</h2>
+<div>
+    @Html.DisplayNameFor(model => Model.bmi) wynosi : @Html.DisplayFor(model => Model.bmi)
+</div>
+@if(Model.bmi < 18.5)
+{
+    <div> i oznacza niedowagę.</div>
+}
+else if(Model.bmi >= 18.5 && Model.bmi <25)
+{
+    <div> i oznacza wagę prawidłową. Gratulacje!</div>
+}
+else if(Model.bmi >= 25)
+{
+    <div> i oznacza nadwagę.</div>
+}

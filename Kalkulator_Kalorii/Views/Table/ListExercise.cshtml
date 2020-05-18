@@ -1,0 +1,43 @@
+﻿@model Kalkulator_Kalorii.ViewModels.ExerciseListVM
+@using Kalkulator_Kalorii.ViewModels
+@{
+    ViewBag.Title = "Lista Ćwiczeń";
+}
+
+
+
+<p class="link">
+    @Html.ActionLink("Dodaj nowe ćwiczenie", "CreateExercise")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.exerciseVMList.First().exerciseVM.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.exerciseVMList.First().exerciseVM.calories)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (ExerciseVM item in Model.exerciseVMList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.exerciseVM.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.exerciseVM.calories)
+            </td>
+            <td>
+                <p class="link">
+                    @Html.ActionLink("Edytuj", "EditExercise", new { @id = item.exerciseVM.exerciseID })
+                </p> 
+                <p class="link">
+                    @Html.ActionLink("Usuń", "DeleteExercise", item.exerciseVM)
+                </p>
+            </td>
+        </tr>
+    }
+
+</table>

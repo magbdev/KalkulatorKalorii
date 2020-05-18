@@ -1,0 +1,12 @@
+﻿
+@if (Session["LoginID"] != null)
+{
+
+     <li><a href="#">@Html.ActionLink("Wyloguj", "LogOut", "Login")</a></li>
+    
+}
+else
+{
+    <li><a href="#">@Html.ActionLink("Zaloguj się", "Login", "Login")</a></li>
+}
+

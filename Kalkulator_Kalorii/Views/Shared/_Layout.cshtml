@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Kalkulator Kalorii</title>
+    <link href="@Url.Content("~/Content/MyStyle.css")" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>KALKULATOR<span>KALORII</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#">@Html.ActionLink("Strona główna", "Home", "Home")</a></li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#">Kalkulatory</a>
+                        <div class="dropdown-content">
+                            
+                            <a href="#">@Html.ActionLink("Kalkulator BMI", "CalculatorBMI", "Calculator")</a>
+                            <a href="#">@Html.ActionLink("Kalkulator Przemiany Materii", "CalculatorPPM", "Calculator")</a>
+                            <a href="#">@Html.ActionLink("Kalkulator należnej masy ciała", "CalculatorLorentz", "Calculator")</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <a href="#">Tabele</a>
+                        <div class="dropdown-content">
+                            <a href="#">@Html.ActionLink("Tabela Produktów", "ListProduct", "Table")</a>
+                            <a href="#">@Html.ActionLink("Tabela ćwiczeń", "ListExercise", "Table")</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#">@Html.ActionLink("Rejestracja", "Register", "Login")</a></li>
+                @Html.Partial("_LoginPartial")
+            </ul>
+        </nav>
+    </header>
+    <div class="container-body">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year</p>
+        </footer>
+    </div>
+
+</body>
+</html>

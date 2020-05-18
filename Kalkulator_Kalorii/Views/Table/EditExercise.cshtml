@@ -1,0 +1,36 @@
+﻿@model Kalkulator_Kalorii.Models.Exercise
+
+@{
+    ViewBag.Title = "Edycja Ćwiczenia";
+}
+
+    <div class="center-block">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.exerciseID)
+                <br />
+                <div>
+                    @Html.DisplayNameFor(model => model.name)
+                    <div>
+                        @Html.EditorFor(model => model.name)
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div>
+                    @Html.DisplayNameFor(model => model.calories)
+                    <div>
+                        @Html.EditorFor(model => model.calories)
+                        @Html.ValidationMessageFor(model => model.calories, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <input type="submit" value="Zapisz" class="link" />
+
+            </div>
+        }
+    </div>

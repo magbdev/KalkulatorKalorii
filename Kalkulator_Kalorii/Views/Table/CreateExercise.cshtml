@@ -1,0 +1,39 @@
+﻿@model Kalkulator_Kalorii.Models.Exercise
+
+@{
+    ViewBag.Title = "Dodaj Ćwiczenie";
+}
+
+    <div class="center-block">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <br />
+                <div>
+                    @Html.LabelFor(model => model.name)
+                    <div>
+                        @Html.EditorFor(model => model.name)
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div>
+                    @Html.LabelFor(model => model.calories)
+                    <div>
+                        @Html.EditorFor(model => model.calories)
+                        @Html.ValidationMessageFor(model => model.calories, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <input type="submit" value="Dodaj" class="link" />
+
+
+            </div>
+        }
+
+    </div>

@@ -1,0 +1,64 @@
+﻿@model Kalkulator_Kalorii.Models.Product
+
+@{
+    ViewBag.Title = "Edycja Produktu";
+}
+
+    <div class="center-block">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.productID)
+                <br />
+                <div>
+                    @Html.DisplayNameFor(model => model.name)
+                    <div>
+                        @Html.EditorFor(model => model.name)
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div>
+                    @Html.DisplayNameFor(model => model.calories)
+                    <div>
+                        @Html.EditorFor(model => model.calories)
+                        @Html.ValidationMessageFor(model => model.calories, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div>
+                    @Html.DisplayNameFor(model => model.protein)
+                    <div>
+                        @Html.EditorFor(model => model.protein)
+                        @Html.ValidationMessageFor(model => model.protein, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div>
+                    @Html.DisplayNameFor(model => model.carbs)
+                    <div>
+                        @Html.EditorFor(model => model.carbs)
+                        @Html.ValidationMessageFor(model => model.carbs, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div>
+                    @Html.DisplayNameFor(model => model.fats)
+                    <div>
+                        @Html.EditorFor(model => model.fats)
+                        @Html.ValidationMessageFor(model => model.fats, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <br />
+                <input type="submit" value="Zapisz" class="link" />
+
+            </div>
+
+        }
+
+    </div>
